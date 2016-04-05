@@ -1,11 +1,10 @@
 package pizza.repository;
 
 import pizza.domain.Order;
-import pizza.infrastructure.annotations.BanchMark;
+import pizza.infrastructure.annotations.BenchMark;
 
 public interface OrderRepository {
 
-	@BanchMark(active = true)
 	Long saveOrder(Order newOrder);
 	
 }

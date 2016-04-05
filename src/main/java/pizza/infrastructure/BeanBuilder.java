@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-
-import pizza.infrastructure.annotations.BanchMark;
+import pizza.infrastructure.annotations.BenchMark;
 import pizza.infrastructure.annotations.InitInvoking;
 import pizza.infrastructure.annotations.PostConstruct;
 
@@ -32,8 +31,8 @@ public class BeanBuilder {
 	public void createBeanProxy() {
 		Method[] methods = clazz.getMethods();
 		for (Method method : methods) {
-			if (method.getAnnotation(BanchMark.class) != null) {
-				BanchMark banchMark = method.getAnnotation(BanchMark.class);
+			if (method.getAnnotation(BenchMark.class) != null) {
+				BenchMark banchMark = method.getAnnotation(BenchMark.class);
 				boolean active = banchMark.active();
 				if (active) {
 					createProxyForBean();
@@ -47,7 +46,7 @@ public class BeanBuilder {
 		Class beanClass = bean.getClass();
 		List<Class<?>> interfaceList = getAllInterfaces(beanClass);
 		Class[] interfaces = (interfaceList.toArray(new Class[interfaceList.size()]));
-		InvocationHandler handler = new MyInvocationHandler(bean);
+		InvocationHandler handler = new MyInvocationHandler(bean, clazz);
 		beanProxy = Proxy.newProxyInstance(beanClass.getClassLoader(), interfaces, handler);
 	}
 	
@@ -114,7 +113,7 @@ public class BeanBuilder {
 		bean = constructor.newInstance(paramBeans);
 		return bean;
 	}
-	
+
 	private Object[] getParams(Class<?>[] paramTypes) throws Exception {
 		Object[] paramBeans = new Object[paramTypes.length];
 		for (int i = 0; i < paramTypes.length; i++) {
@@ -134,5 +133,5 @@ public class BeanBuilder {
 		String paramName = Character.toLowerCase(paramTypeName.charAt(0)) + paramTypeName.substring(1);
 		return paramName;
 	}
-	
+
 }
