@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pizza.domain.Pizza;
-import pizza.infrastructure.PostConstruct;
+import pizza.infrastructure.annotations.PostConstruct;
 import pizza.repository.PizzaRepository;
 import pizza.repository.pizza.exceptions.NoSuchPizzaException;
 

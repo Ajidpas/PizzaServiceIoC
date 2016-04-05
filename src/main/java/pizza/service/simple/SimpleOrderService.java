@@ -21,11 +21,9 @@ public class SimpleOrderService implements OrderService {
 	
 	private ServiceLocator locator = ServiceLocator.getInstance();
 
-	private PizzaRepository pizzaRepository; 
-//	= (PizzaRepository) locator.lookup("pizzaRepository");
+	private PizzaRepository pizzaRepository;
 
-	private OrderRepository orderRepository; 
-//			= (OrderRepository) locator.lookup("orderRepository");
+	private OrderRepository orderRepository;
 	
 	public SimpleOrderService(PizzaRepository pizzaRepository, OrderRepository orderRepository) {
 		super();
