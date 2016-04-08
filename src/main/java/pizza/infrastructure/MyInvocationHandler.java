@@ -19,12 +19,8 @@ public class MyInvocationHandler implements InvocationHandler {
 	}
 
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		Method[] methods = clazz.getMethods();
-		for (Method currentMethod : methods) {
-			if (currentMethod.getName().equals(method.getName()) 
-					&& currentMethod.getAnnotation(BenchMark.class) != null) {
-				return runMethodWithTimeChecking(method, args);
-			}
+		if (clazz.getMethod(method.getName(), method.getParameterTypes()).isAnnotationPresent(BenchMark.class)) {
+			return runMethodWithTimeChecking(method, args);
 		}
 		return method.invoke(bean, args);
 	}

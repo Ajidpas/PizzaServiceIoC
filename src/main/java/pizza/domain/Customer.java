@@ -10,7 +10,7 @@ public class Customer {
 	
 	private AccumulativeCard accumulativeCard;
 	
-	private Customer(int id, String name) {
+	public Customer(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
