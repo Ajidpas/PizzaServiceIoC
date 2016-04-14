@@ -1,7 +1,7 @@
 package pizza.service;
 
-import pizza.domain.Customer;
 import pizza.domain.Order;
+import pizza.domain.customer.Customer;
 
 public interface OrderService {
 

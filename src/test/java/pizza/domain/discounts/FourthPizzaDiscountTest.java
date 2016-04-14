@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import pizza.domain.Customer;
 import pizza.domain.Order;
+import pizza.domain.customer.Customer;
 import pizza.repository.pizza.InMemPizzaRepository;
 import pizza.repository.pizza.exceptions.NoSuchPizzaException;
 import pizza.service.simple.SimpleOrderService;

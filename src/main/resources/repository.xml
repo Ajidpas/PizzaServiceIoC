@@ -3,27 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-	<!-- <bean name="pizzaRepository" 
-        class="pizza.repository.pizza.InMemPizzaRepository"
-        init-method="cookPizzas">
-        <property name="pizzas">
-        	<list>
-        		<bean class="pizza.domain.Pizza">
-        			<constructor-arg index="0" value="10" />
-					<constructor-arg index="1" value="Pizza from repository" />
-					<constructor-arg index="2" value="2.5" />
-					<constructor-arg index="3" value="SEA"/>
-        		</bean>
-        	</list>
-        </property>
-	</bean> -->
-	<!-- 
-    <bean name="pizzaRepository" class="pizza.repository.pizza.InMemPizzaRepository" init-method="cookPizzas" />
-     -->
-    <!-- <bean name="orderRepository" class="pizza.repository.order.InMemOrderRepository" /> -->
     
-    <bean id="customer" class="pizza.domain.Customer" >
+    <bean id="customer" class="pizza.domain.customer.Customer" >
 		<constructor-arg value="2" />
 		<constructor-arg value="Customer form repository context" />
 	</bean>

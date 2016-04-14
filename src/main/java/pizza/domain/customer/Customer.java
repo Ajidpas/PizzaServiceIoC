@@ -1,4 +1,4 @@
-package pizza.domain;
+package pizza.domain.customer;
 
 import org.springframework.beans.factory.FactoryBean;
 

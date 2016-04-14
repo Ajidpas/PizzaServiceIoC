@@ -1,7 +1,7 @@
 package pizza;
 
-import pizza.domain.Customer;
 import pizza.domain.Order;
+import pizza.domain.customer.Customer;
 import pizza.infrastructure.ApplicationContext;
 import pizza.infrastructure.JavaConfigApplicationContext;
 import pizza.repository.PizzaRepository;

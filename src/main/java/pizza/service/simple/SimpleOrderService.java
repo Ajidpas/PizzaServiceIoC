@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Lookup;
 
-import pizza.domain.Customer;
 import pizza.domain.Order;
 import pizza.domain.Pizza;
+import pizza.domain.customer.Customer;
 import pizza.infrastructure.ServiceLocator;
 import pizza.infrastructure.annotations.BenchMark;
 import pizza.repository.OrderRepository;

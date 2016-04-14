@@ -3,6 +3,8 @@ package pizza.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import pizza.domain.customer.AccumulativeCard;
+import pizza.domain.customer.Customer;
 import pizza.domain.discounts.FourthPizzaDiscount;
 
 public class Order {

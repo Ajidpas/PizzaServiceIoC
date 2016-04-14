@@ -1,7 +1,9 @@
-package pizza.infrastructure;
+package pizza.infrastructure.benchmarkproxy;
 
 import java.lang.reflect.*;
 import java.util.*;
+
+import pizza.infrastructure.MyInvocationHandler;
 import pizza.infrastructure.annotations.BenchMark;
 
 public class BenchMarkProxyBuilder {

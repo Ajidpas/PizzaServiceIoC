@@ -1,4 +1,4 @@
-package pizza.domain;
+package pizza.domain.customer;
 
 public class Address {
 	
