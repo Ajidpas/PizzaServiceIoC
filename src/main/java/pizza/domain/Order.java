@@ -17,6 +17,8 @@ public class Order {
 	
 	private Discount discount;
 	
+	public Order() {}
+	
 	public Order(Customer customer, List<Pizza> pizzas) {
 		this.customer = customer;
 		pizzaList = new ArrayList();

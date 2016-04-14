@@ -33,7 +33,11 @@ public class MyInvocationHandler implements InvocationHandler {
 		Object obj = method.invoke(bean, args);
 		nanosecondsAfter = System.nanoTime();
 		long nanosecondsResult = nanosecondsAfter - nanosecondsBefore;
-		System.out.println("Method " + method.getName() + " worked " + nanosecondsResult + " nanoseconds.");
+		System.out.print("----------------------------------------------------------------------");
+		System.out.println("-------------------------------------------------------");
+		System.out.println("Method " + method.getName() + " worked " + nanosecondsResult + " nanoseconds. Class: " + bean);
+		System.out.print("----------------------------------------------------------------------");
+		System.out.println("-------------------------------------------------------");
 		return obj;
 	}
 

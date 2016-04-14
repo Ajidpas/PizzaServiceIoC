@@ -4,6 +4,23 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean name="order" class="pizza.domain.Order" scope="prototype" />
+    
+    <bean name="pizzaRepository" 
+        class="pizza.repository.pizza.InMemPizzaRepository"
+        init-method="cookPizzas">
+        <property name="pizzas">
+        	<list>
+        		<bean class="pizza.domain.Pizza">
+        			<constructor-arg index="0" value="10" />
+					<constructor-arg index="1" value="Pizza from repository" />
+					<constructor-arg index="2" value="2.5" />
+					<constructor-arg index="3" value="SEA"/>
+        		</bean>
+        	</list>
+        </property>
+	</bean>
+
 	<!-- 
         <import resource="repository.xml" />
          --> 
@@ -11,16 +28,16 @@
     <bean name="pizzaRepository" class="pizza.repository.pizza.InMemPizzaRepository" init-method="cookPizzas" />
      -->
     <bean name="orderRepository" class="pizza.repository.order.InMemOrderRepository" />
-    
-    
-    <bean name="orderService" class="pizza.service.simple.SimpleOrderService" >
+
+    <bean name="orderService" class="pizza.service.simple.SimpleOrderService" autowire="byType" >
     	<constructor-arg ref="pizzaRepository"/>
     	<constructor-arg ref="orderRepository"/>
+    	<!--  <property name="order" ref="order" />  -->
+    	<lookup-method name="createOrder" bean="order" />
     </bean> 
-	
-	
+
 	<bean id="createPizzaBean" class="pizza.service.CreatePizzaService" /> 
-	
+
 	<bean factory-bean="createPizzaBean" factory-method="createPizza" >
 		<constructor-arg index="0" value="5" />
 		<constructor-arg index="1" value="Pizza from factory" />
@@ -28,10 +45,13 @@
 		<constructor-arg index="3" value="SEA"/>
 	</bean>
 	
-	
-	<bean id="customer" class="pizza.domain.Customer" >
+	<!-- <bean name="customer" class="pizza.domain.Customer" /> -->
+
+	<!-- <bean id="customer" class="pizza.domain.Customer" primary="true" >
 		<constructor-arg value="1" />
 		<constructor-arg value="Customer from application context" />
-	</bean>
-
+	</bean> -->
+	
+	<bean name="benchMarkProxyBeanPostProcessor" class="pizza.infrastructure.BenchMarkProxyBeanPostProcessor" />
+	
 </beans>

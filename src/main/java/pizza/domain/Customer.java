@@ -1,6 +1,9 @@
 package pizza.domain;
 
-public class Customer {
+import org.springframework.beans.factory.FactoryBean;
+
+
+public class Customer implements FactoryBean<Customer>{
 	
 	private int id;
 	
@@ -62,5 +65,19 @@ public class Customer {
 	public String toString() {
 		return "Customer [id=" + id + ", name=" + name + "]"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}
+
+	public Customer getObject() throws Exception {
+		return new Customer(1, "Abc");
+	}
+
+	public Class<?> getObjectType() {
+		return Customer.class;
+	}
+
+	public boolean isSingleton() {
+		return false;
+	}
+	
+	
 
 }

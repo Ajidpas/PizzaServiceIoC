@@ -27,7 +27,7 @@ public class BeanBuilder {
 		this.clazz = clazz;
 		this.applicationContext = applicationContext;
 	}
-	
+
 	public void createBeanProxy() {
 		Method[] methods = clazz.getMethods();
 		for (Method method : methods) {

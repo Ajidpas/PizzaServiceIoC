@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean name="pizzaRepository" 
+	<!-- <bean name="pizzaRepository" 
         class="pizza.repository.pizza.InMemPizzaRepository"
         init-method="cookPizzas">
         <property name="pizzas">
@@ -17,18 +17,16 @@
         		</bean>
         	</list>
         </property>
-	</bean>
+	</bean> -->
 	<!-- 
     <bean name="pizzaRepository" class="pizza.repository.pizza.InMemPizzaRepository" init-method="cookPizzas" />
      -->
-    <bean name="orderRepository" class="pizza.repository.order.InMemOrderRepository" />
+    <!-- <bean name="orderRepository" class="pizza.repository.order.InMemOrderRepository" /> -->
     
     <bean id="customer" class="pizza.domain.Customer" >
 		<constructor-arg value="2" />
 		<constructor-arg value="Customer form repository context" />
 	</bean>
-	
-	
 	<bean id="createPizzaBean" class="pizza.service.CreatePizzaService" />
 
 

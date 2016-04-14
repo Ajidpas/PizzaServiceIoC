@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pizza.domain.Pizza;
+import pizza.infrastructure.annotations.BenchMark;
 import pizza.infrastructure.annotations.PostConstruct;
 import pizza.repository.PizzaRepository;
 import pizza.repository.pizza.exceptions.NoSuchPizzaException;
@@ -20,6 +21,7 @@ public class InMemPizzaRepository implements PizzaRepository {
 		allPizzas = new ArrayList<Pizza>();
 	}
 
+	@BenchMark(active = true)
 	public Pizza getPizzaByID(int id) throws NoSuchPizzaException {
 		for (Pizza pizza : allPizzas) {
 			if (pizza.getId() == id) {
