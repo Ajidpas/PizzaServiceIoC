@@ -1,6 +1,9 @@
 package pizza;
 
+import java.util.Arrays;
+
 import pizza.domain.Order;
+import pizza.domain.customer.Address;
 import pizza.domain.customer.Customer;
 import pizza.infrastructure.ApplicationContext;
 import pizza.infrastructure.JavaConfigApplicationContext;
@@ -14,7 +17,9 @@ public class PizzaApp {
 	static View view = new ConsoleView();
 	
 	public static void main(String[] args) throws Exception {
-		Customer customer = new Customer(1, "Vasya", "Kiev", "Chervonoarmiyska", "3", "10"); //$NON-NLS-1$
+		Customer customer = new Customer(); // = new Customer(1, "Vasya", "Kiev", "Chervonoarmiyska", "3", "10"); //$NON-NLS-1$
+		customer.setId(1);
+//		customer.setAddresses(Arrays.asList(new Address("Kiev", "Chervonoarmiyska", "3", "10")));
 		Order order;
 		
 		ApplicationContext ac = new JavaConfigApplicationContext();

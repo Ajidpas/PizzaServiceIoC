@@ -12,7 +12,7 @@ import pizza.service.simple.SimpleOrderService;
 
 public class FourthPizzaDiscountTest {
 	
-	private static final Customer CUSTOMER = new Customer(1, "Vasya", "Kiev", "Chervonoarmiyska", "3", "10"); //$NON-NLS-1$
+//	private static final Customer CUSTOMER = new Customer(1, "Vasya", "Kiev", "Chervonoarmiyska", "3", "10"); //$NON-NLS-1$
 	
 	@Test
 	public void getBiggestPricePizzaTest() throws NoSuchPizzaException {

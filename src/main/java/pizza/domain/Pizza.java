@@ -1,14 +1,32 @@
 package pizza.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.TableGenerator;
+
+@Entity
 public class Pizza {
 
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+//	@SequenceGenerator(name = "pizza_sequence")
+	private Integer id;
 
 	private String name;
 
 	private double price;
 
+	@Enumerated(EnumType.ORDINAL)
+	@Column(unique = true, name = "pizza_type")
 	private PizzaType type;
+	
+	public Pizza() {}
 
 	public Pizza(int id, String name, double price, PizzaType type) {
 		this.id = id;

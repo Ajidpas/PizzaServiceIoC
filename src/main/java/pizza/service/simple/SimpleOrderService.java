@@ -3,18 +3,20 @@ package pizza.service.simple;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
+import org.springframework.stereotype.Service;
 
 import pizza.domain.Order;
 import pizza.domain.Pizza;
 import pizza.domain.customer.Customer;
 import pizza.infrastructure.ServiceLocator;
-import pizza.infrastructure.annotations.BenchMark;
 import pizza.repository.OrderRepository;
 import pizza.repository.PizzaRepository;
 import pizza.repository.pizza.exceptions.NoSuchPizzaException;
 import pizza.service.OrderService;
 
+@Service
 public class SimpleOrderService implements OrderService {
 	private Customer customer;
 	
@@ -42,17 +44,19 @@ public class SimpleOrderService implements OrderService {
 	
 	private ServiceLocator locator = ServiceLocator.getInstance();
 
+	@Autowired
 	private PizzaRepository pizzaRepository;
 
+	@Autowired
 	private OrderRepository orderRepository;
 	
-	public SimpleOrderService(PizzaRepository pizzaRepository, OrderRepository orderRepository) {
-		super();
-		this.pizzaRepository = pizzaRepository;
-		this.orderRepository = orderRepository;
-	}
+//	public SimpleOrderService(PizzaRepository pizzaRepository, OrderRepository orderRepository) {
+//		super();
+//		this.pizzaRepository = pizzaRepository;
+//		this.orderRepository = orderRepository;
+//	}
 
-	@BenchMark(active = true)
+//	@BenchMark(active = true)
 	public Order placeNewOrder(Customer customer, Integer ... pizzasID) {
 		Order newOrder = createOrder();
 		

@@ -2,8 +2,8 @@ package pizza.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import pizza.domain.customer.AccumulativeCard;
 import pizza.domain.customer.Customer;
 import pizza.domain.discounts.FourthPizzaDiscount;
 
@@ -14,6 +14,16 @@ public class Order {
 	private Customer customer;
 	
 	private List<Pizza> pizzaList;
+	
+	private Map<Pizza, Integer> pizzasMap;
+
+	public Map<Pizza, Integer> getPizzas() {
+		return pizzasMap;
+	}
+
+	public void setPizzas(Map<Pizza, Integer> pizzasMap) {
+		this.pizzasMap = pizzasMap;
+	}
 
 	private OrderStatus status;
 	
@@ -73,32 +83,32 @@ public class Order {
 		}
 	}
 	
-	private void fillAccumulativeCard() {
-		AccumulativeCard card = customer.getAccumulativeCard();
-		if (card != null) {
-			double price = getTotalPrice();
-			card.addMoney(price);
-		}
-	}
-	
-	public double getTotalPrice() {
-		return getOrderPrice() - getDiscountPrice() - getAccumulativePrice();
-	}
-
-	public double getAccumulativePrice() {
-		Customer customer = getCustomer();
-		AccumulativeCard card = customer.getAccumulativeCard();
-		if (card != null) {
-			double cardMoney = card.getMoney();
-			double orderPrice = getOrderPrice();
-			if (cardMoney / 10 < orderPrice * 30 / 100) {
-				return cardMoney / 10;
-			} else {
-				return orderPrice * 30 / 100;
-			}
-		}
-		return 0;
-	}
+//	private void fillAccumulativeCard() {
+//		AccumulativeCard card = customer.getAccumulativeCard();
+//		if (card != null) {
+//			double price = getTotalPrice();
+//			card.addMoney(price);
+//		}
+//	}
+//	
+//	public double getTotalPrice() {
+//		return getOrderPrice() - getDiscountPrice() - getAccumulativePrice();
+//	}
+//
+//	public double getAccumulativePrice() {
+//		Customer customer = getCustomer();
+//		AccumulativeCard card = customer.getAccumulativeCard();
+//		if (card != null) {
+//			double cardMoney = card.getMoney();
+//			double orderPrice = getOrderPrice();
+//			if (cardMoney / 10 < orderPrice * 30 / 100) {
+//				return cardMoney / 10;
+//			} else {
+//				return orderPrice * 30 / 100;
+//			}
+//		}
+//		return 0;
+//	}
 
 	public double getDiscountPrice() {
 		if (discount != null) {
@@ -107,13 +117,13 @@ public class Order {
 		return 0;
 	}
 
-	public double getOrderPrice() {
-		double totalPrice = 0;
-		for (Pizza pizza : getPizzaList()) {
-			totalPrice += pizza.getPrice();
-		}
-		return totalPrice;
-	}
+//	public double getOrderPrice() {
+//		double totalPrice = 0;
+//		for (Pizza pizza : getPizzaList()) {
+//			totalPrice += pizza.getPrice();
+//		}
+//		return totalPrice;
+//	}
 
 	public Long getId() {
 		return id;
