@@ -1,7 +1,6 @@
 package pizza;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,7 +10,6 @@ import pizza.domain.Pizza;
 import pizza.domain.Pizza.PizzaType;
 import pizza.domain.customer.Address;
 import pizza.domain.customer.Customer;
-import pizza.domain.customer.RegistratedCustomer;
 import pizza.infrastructure.state.State;
 
 public class JpaWithoutSpringApp {

@@ -23,7 +23,7 @@ public class Pizza {
 	private double price;
 
 	@Enumerated(EnumType.ORDINAL)
-	@Column(unique = true, name = "pizza_type")
+	@Column(name = "pizza_type")
 	private PizzaType type;
 	
 	public Pizza() {}
