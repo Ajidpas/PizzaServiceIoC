@@ -17,14 +17,14 @@ public class JpaWithSpring {
 		appContext.refresh();
 		
 		PizzaRepository pr = (PizzaRepository) appContext.getBean("pizzaRepository");
-		Pizza pizza = pr.getPizzaByID(1);
-		System.out.println(pizza);
+//		Pizza pizza = pr.getPizzaByID(1);
+//		System.out.println(pizza);
 		
 		Pizza pizzaInsert = new Pizza();
 		pizzaInsert.setName("Transactional Pizza insert");
 		pizzaInsert.setPrice(564);
 		pizzaInsert.setType(PizzaType.MEAT);
-		System.out.println(pr.insertPizza(pizzaInsert));
+		System.out.println("id inserted pizza = " + pr.insertPizza(pizzaInsert));
 
 		appContext.close();
 		repositoryContext.close();

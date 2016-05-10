@@ -34,6 +34,7 @@ public class JpaPizzaRepository implements PizzaRepository {
 	}
 
 	public int insertPizza(Pizza pizza) {
+		System.out.println("inserting pizza");
 		em.persist(pizza);
 		return pizza.getId();
 	}

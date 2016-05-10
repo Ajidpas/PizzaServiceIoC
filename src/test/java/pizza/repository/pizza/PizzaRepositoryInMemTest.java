@@ -48,21 +48,21 @@ public class PizzaRepositoryInMemTest extends AbstractTransactionalJUnit4SpringC
 	
 	@Test
 	public void testGetPizzaById2() throws NoSuchPizzaException {
-		final String sql = "INSERT INTO pizza (name, price, pizza_type) values ('sql pizza', 1354, 1)";
-		KeyHolder keyHolder = new GeneratedKeyHolder();
-		
-		jdbcTemplate.update(new PreparedStatementCreator() {
-
-			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				return con.prepareStatement(sql);
-			}
-			
-		}, keyHolder);
-		
-		int id = keyHolder.getKey().intValue();
-		
-		Pizza pizza = pizzaRepository.getPizzaByID(id);
-		System.out.println(pizza);
+//		final String sql = "INSERT INTO pizza (name, price, pizza_type) values ('sql pizza', 1354, 1)";
+//		KeyHolder keyHolder = new GeneratedKeyHolder();
+//		
+//		jdbcTemplate.update(new PreparedStatementCreator() {
+//
+//			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+//				return con.prepareStatement(sql);
+//			}
+//			
+//		}, keyHolder);
+//		
+//		int id = keyHolder.getKey().intValue();
+//		
+//		Pizza pizza = pizzaRepository.getPizzaByID(id);
+//		System.out.println(pizza);
 	}
 
 }

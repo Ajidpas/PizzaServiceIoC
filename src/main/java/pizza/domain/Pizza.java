@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.TableGenerator;
 
-@Entity
+@Entity(name = "pizza")
 public class Pizza {
 
 	@Id
