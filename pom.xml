@@ -1,31 +1,39 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>java.com</groupId>
-  <artifactId>PizzaService</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>PizzaServiseProject</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		
+	<modelVersion>4.0.0</modelVersion>
+  	<groupId>java.com</groupId>
+  	<artifactId>PizzaService</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<packaging>war</packaging>
+  	<name>PizzaServiseProject</name>
   
-  <properties>
+  	<url>http://maven.apache.org</url>
+  
+  	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java-version>1.7</java-version>
-		<org.springframework-version>4.2.4.RELEASE</org.springframework-version>
+		<org.springframework.version>4.2.5.RELEASE</org.springframework.version>
+		
+		<java-version>1.8</java-version>
+		
+		<maven.compiler.target>1.8</maven.compiler.target>
+      	<maven.compiler.source>1.8</maven.compiler.source>
+      	
+	    <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+	    <maven.compiler.testSource>1.8</maven.compiler.testSource>
 		
 		<org.aspectj-version>1.8.1</org.aspectj-version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
 		
 	</properties>
   
-  <dependencies>
+	<dependencies>
   		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
@@ -34,29 +42,41 @@
 			<version>9.1-901-1.jdbc4</version>
 		</dependency>
 		
-		
   		<dependency>
   			<groupId>org.mockito</groupId>
   			<artifactId>mockito-all</artifactId>
   			<version>1.10.19</version>
 		</dependency>
 		
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.2.4.RELEASE</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>4.2.4.RELEASE</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework.version}</version>
 		</dependency>
 		
 		<!-- hibernate -->
@@ -74,13 +94,6 @@
 		</dependency>
         
         <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>3.1.1.RELEASE</version>
-		</dependency>
-
-        
-        <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
@@ -92,102 +105,28 @@
             <version>1.4.191</version>
         </dependency>
         
+        <!-- web -->
+        <dependency>
+        	<groupId>javax.servlet</groupId>
+	  		<artifactId>javax.servlet-api</artifactId>
+	  		<version>3.1.0</version>
+	  		<scope>provided</scope>
+        </dependency>
         
-        
-        
-        
-        
+        <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 		
-  </dependencies>
-  
-  <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <version>LATEST</version>
-            </plugin>
-        </plugins>
-    </reporting>
-   
+	</dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.4.201502262128</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.16</version>
-                <configuration></configuration>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>checkstyle</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>3.0.2</version>
-                <configuration>
-                    <effort>Max</effort>
-                    <threshold>Low</threshold>
-                    <xmlOutput>true</xmlOutput>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>findbugs</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.5</version>
-                <configuration>
-                    <linkXref>true</linkXref>
-                    <sourceEncoding>UTF8</sourceEncoding>
-                    <minimumTokens>30</minimumTokens>
-                    <targetJdk>1.7</targetJdk>                    
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>pmd</goal>
-                            <goal>cpd</goal>
-                        </goals>
-                        
-                    </execution>
-                </executions>
-            </plugin>  
-            
+			<plugin>                
+				<groupId>org.apache.tomcat.maven</groupId>                   
+				<artifactId>tomcat7-maven-plugin</artifactId>                   
+				<version>2.2</version>               
+			</plugin>
         </plugins>
     </build>
   
